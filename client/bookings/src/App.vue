@@ -1,6 +1,8 @@
 <template lang="html">
-  <booking-form />
-  <bookings-grid />
+  <div class="">
+    <booking-form />
+    <bookings-grid />
+  </div>
 </template>
 
 <script>
