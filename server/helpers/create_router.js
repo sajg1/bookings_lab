@@ -26,6 +26,12 @@ const createRouter = function(collection) {
     });
   });
 
+  router.post('/', (req, res) => {
+    const body = req.body;
+    collection.insertOne(body)
+    .then((newBooking) => res.json(newBooking.ops[0]));
+  });
+
   return router;
 
 };
