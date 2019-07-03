@@ -29,6 +29,11 @@ export default {
     eventBus.$on('new-booking', (newBooking) => {
       this.bookings.push(newBooking)
     })
+
+    eventBus.$on('deleted-booking', (id) => {
+      let index = this.bookings.findIndex(booking => booking._id === id)
+      this.bookings.splice(index, 1)
+    })
   }
 }
 </script>
