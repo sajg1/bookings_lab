@@ -8,8 +8,9 @@
 </template>
 
 <script>
-import BookingsService from '@/services/BookingsService.js'
-import BookingCard from '@/components/BookingCard'
+import BookingsService from '@/services/BookingsService.js';
+import BookingCard from '@/components/BookingCard';
+import { eventBus } from '@/main.js';
 
 export default {
   name: 'bookings-grid',
@@ -24,6 +25,10 @@ export default {
   mounted(){
     BookingsService.getBookings()
     .then( bookings => this.bookings = bookings)
+
+    eventBus.$on('new-booking', (newBooking) => {
+      this.bookings.push(newBooking)
+    })
   }
 }
 </script>
