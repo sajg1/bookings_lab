@@ -29,7 +29,12 @@ const createRouter = function(collection) {
   router.post('/', (req, res) => {
     const body = req.body;
     collection.insertOne(body)
-    .then((newBooking) => res.json(newBooking.ops[0]));
+    .then((newBooking) => res.json(newBooking.ops[0]))
+    .catch((error) => {
+      console.error(error);
+      res.status(500);
+      res.json({ status:500, error:error});
+    });
   });
 
   return router;
