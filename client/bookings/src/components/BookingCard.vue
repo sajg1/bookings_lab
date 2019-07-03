@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="booking-card">
-    <h2>{{ booking.guestName }}</h2>
+    <h4>{{ booking.guestName }}</h4>
     <p>Email: {{ booking.guestEmail }}</p>
     <p>Checked In? {{ booking.checkedIn }}</p>
   </div>

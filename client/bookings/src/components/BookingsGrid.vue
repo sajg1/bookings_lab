@@ -1,6 +1,9 @@
 <template lang="html">
-  <div class="booking-wrapper">
+  <div>
+    <h3>Guests</h3>
+    <div class="booking-wrapper">
       <booking-card v-for="(booking, index) in bookings" :booking="booking" :key="index"/>
+    </div>
   </div>
 </template>
 
