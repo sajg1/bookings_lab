@@ -33,9 +33,20 @@ const createRouter = function(collection) {
     .catch((error) => {
       console.error(error);
       res.status(500);
-      res.json({ status:500, error:error});
+      res.json({ status:500, error:error });
     });
   });
+
+  router.delete('/:id', (req, res) =>{
+    const id = req.params.id;
+    collection.deleteOne({ _id: ObjectID(id)})
+    .then( (result) => res.json(result))
+    .catch((error) => {
+      console.error(error);
+      res.status(500);
+      res.json({ status: 500, error:error });
+    });
+  })
 
   return router;
 
